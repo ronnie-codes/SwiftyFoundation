@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import SwiftfulRouting
 
 public struct MasterDetail: View {
     @State private var selection: UUID?
@@ -19,9 +18,6 @@ public struct MasterDetail: View {
             detail: {
                 if let selection, let destination = destinations.first(where: { $0.id == selection }) {
                     Detail(destination: destination)
-                } else {
-                    // TODO: inject
-//                    Text(R.string.localizable.sharedGreeting())
                 }
             }
         )

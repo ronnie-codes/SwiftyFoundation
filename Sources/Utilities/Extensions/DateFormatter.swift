@@ -5,7 +5,7 @@
 
 import Foundation
 
-extension DateFormatter {
+public extension DateFormatter {
     static let rfc822: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")

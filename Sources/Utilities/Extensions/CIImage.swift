@@ -5,7 +5,7 @@
 
 import CoreImage
 
-extension CIImage {
+public extension CIImage {
     func resized(size: CGSize) -> CIImage {
         let scaleX = size.width / extent.width
         let scaleY = size.height / extent.height

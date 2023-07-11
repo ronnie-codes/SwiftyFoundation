@@ -4,7 +4,6 @@
 //
 
 import SwiftUI
-import SwiftfulRouting
 
 public struct DestinationComposer: View {
     private let destinations: [Destination]

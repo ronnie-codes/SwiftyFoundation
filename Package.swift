@@ -45,7 +45,9 @@ let package = Package(
         ),
         .target(
             name: "SwiftyImageProcessing",
-            dependencies: [],
+            dependencies: [
+                .target(name: "SwiftyUtilities")
+            ],
             path: "Sources/ImageProcessing"
         ),
         .target(
