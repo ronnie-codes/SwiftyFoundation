@@ -58,7 +58,9 @@ public struct CardView<ViewModel: CardViewModel>: View {
 
     private var subheadlines: some View {
         VStack(alignment: .leading) {
-            Text(viewModel.subtitle)
+            if let subtitle = viewModel.subtitle {
+                Text(subtitle)
+            }
             Text(viewModel.footer)
         }
         .font(.subheadline)
@@ -68,7 +70,11 @@ public struct CardView<ViewModel: CardViewModel>: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(viewModel: CardViewModelMock())
-            .frame(width: 336)
+        Group {
+            CardView(viewModel: CardViewModelMock())
+                .frame(width: 336)
+            CardView(viewModel: CardViewModelMock(subtitle: nil))
+                .frame(width: 336)
+        }
     }
 }
