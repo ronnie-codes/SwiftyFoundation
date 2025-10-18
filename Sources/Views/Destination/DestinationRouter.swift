@@ -1,11 +1,11 @@
 //
-//  DestinationComposer.swift
+//  DestinationRouter.swift
 //  NiceTube
 //
 
 import SwiftUI
 
-public struct DestinationComposer: View {
+public struct DestinationRouter: View {
     private let destinations: [Destination]
 
     public init(destinations: [Destination]) {
