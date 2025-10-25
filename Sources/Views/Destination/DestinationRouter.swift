@@ -13,7 +13,7 @@ public struct DestinationRouter: View {
     }
 
     public var body: some View {
-        #if os(tvOS)
+        #if os(tvOS) || os(iOS)
         TabBar(destinations: destinations)
         #else
         MasterDetail(destinations: destinations)
