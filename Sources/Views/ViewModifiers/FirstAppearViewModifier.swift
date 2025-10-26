@@ -23,7 +23,7 @@ private struct FirstAppearViewModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func onFirstAppear(perform action: @escaping () -> Void) -> some View {
         modifier(FirstAppearViewModifier(action: action))
     }
