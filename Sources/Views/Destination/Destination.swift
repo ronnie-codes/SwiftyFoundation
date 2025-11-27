@@ -14,12 +14,13 @@ public protocol Destination {
 }
 
 public struct DestinationDefault: Destination {
-    public let id: UUID = .init()
+    public let id: UUID
     public let title: String
     public let systemImage: String
     public let view: AnyView
 
-    public init(title: String, systemImage: String, view: some View) {
+    public init(id: UUID = .init(), title: String, systemImage: String, view: some View) {
+        self.id = id
         self.title = title
         self.systemImage = systemImage
         self.view = AnyView(view)

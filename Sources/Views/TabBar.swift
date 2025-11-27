@@ -5,9 +5,20 @@
 
 import SwiftUI
 
-// TODO: Fix
 public struct TabBar: View {
     @State private var selection: UUID?
+
+    let destinations: [Destination]
+
+    public var body: some View {
+        TabView(selection: $selection) {
+            TabList(destinations: destinations, selection: $selection)
+        }
+    }
+}
+
+public struct TabBarSelectable: View {
+    @Binding var selection: UUID?
 
     let destinations: [Destination]
 
@@ -34,8 +45,11 @@ private struct TabItem: View {
     let destination: Destination
 
     var body: some View {
-        destination.view.tabItem {
-            SwiftUI.Label(destination.title, systemImage: destination.systemImage)
-        }
+        destination
+            .view
+            .tabItem {
+                SwiftUI.Label(destination.title, systemImage: destination.systemImage)
+            }
+            .tag(destination.id)
     }
 }

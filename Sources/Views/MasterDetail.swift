@@ -25,6 +25,26 @@ public struct MasterDetail: View {
     }
 }
 
+public struct MasterDetailSelectable: View {
+    @Binding var selection: UUID?
+
+    let destinations: [Destination]
+
+    public var body: some View {
+        NavigationSplitView(
+            sidebar: {
+                Master(destinations: destinations, selection: $selection)
+            },
+            detail: {
+                if let selection, let destination = destinations.first(where: { $0.id == selection }) {
+                    Detail(destination: destination)
+                }
+            }
+        )
+        .background(.thinMaterial)
+    }
+}
+
 private struct Master: View {
     let destinations: [Destination]
 
