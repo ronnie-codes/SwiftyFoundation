@@ -1,11 +1,11 @@
 //
-//  UserDefaultsService.swift
-//  NiceTube
+//  UserDefaultsStorage.swift
+//  SwiftyFoundation
 //
 
 import Foundation
 
-public final class UserDefaultsService: LocalStorageService {
+public final class UserDefaultsStorage: LocalKeyValueStorage {
     private let defaults: UserDefaults
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder

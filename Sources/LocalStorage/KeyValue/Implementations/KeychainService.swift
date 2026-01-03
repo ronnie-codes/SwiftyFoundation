@@ -1,12 +1,12 @@
 //
-//  KeychainService.swift
-//  NiceTube
+//  KeychainStorage.swift
+//  SwiftyFoundation
 //
 
 import Foundation
 import KeychainAccess
 
-public final class KeychainService: LocalStorageService {
+public final class KeychainStorage: LocalKeyValueStorage {
     private let keychain: Keychain
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder

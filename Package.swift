@@ -13,8 +13,8 @@ let package = Package(
             name: "SwiftyViews",
             targets: ["SwiftyViews"]),
         .library(
-            name: "SwiftyStorage",
-            targets: ["SwiftyStorage"]),
+            name: "SwiftyLocalStorage",
+            targets: ["SwiftyLocalStorage"]),
         .library(
             name: "SwiftyNetworking",
             targets: ["SwiftyNetworking"]),
@@ -64,11 +64,11 @@ let package = Package(
             path: "Sources/NLP"
         ),
         .target(
-            name: "SwiftyStorage",
+            name: "SwiftyLocalStorage",
             dependencies: [
                 .product(name: "KeychainAccess", package: "keychainaccess"),
             ],
-            path: "Sources/Storage"
+            path: "Sources/LocalStorage"
         ),
         .target(
             name: "SwiftyUtilities",
