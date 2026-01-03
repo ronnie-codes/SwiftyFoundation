@@ -5,6 +5,8 @@
 
 import NaturalLanguage
 
+public typealias Token = (text: String, range: Range<String.Index>)
+
 public enum TokenizationUnit: Sendable, CaseIterable {
     case word
     case sentence
@@ -13,7 +15,7 @@ public enum TokenizationUnit: Sendable, CaseIterable {
 }
 
 public protocol TokenizationService {
-    func tokenize(_ content: String) -> [String]
+    func tokenize(_ content: String) -> [Token]
 }
 
 public final class TokenizationServiceApple: TokenizationService  {
@@ -23,15 +25,15 @@ public final class TokenizationServiceApple: TokenizationService  {
         self.tokenizer = NLTokenizer(unit: tokenizationUnit.appleNLTokenUnit)
     }
 
-    public func tokenize(_ content: String) -> [String] {
+    public func tokenize(_ content: String) -> [Token] {
         tokenizer.string = content
 
-        var tokens = [String]()
+        var tokens = [Token]()
         tokenizer.enumerateTokens(in: content.startIndex..<content.endIndex) { tokenRange, _ in
             let token = content[tokenRange].trimmingCharacters(in: .whitespacesAndNewlines)
 
             if !token.isEmpty {
-                tokens.append(token)
+                tokens.append((token, tokenRange))
             }
  
             return true
