@@ -8,7 +8,7 @@
 import Foundation
 
 public final class FileManagerStorage: LocalDocumentStorage {
-    static let shared = FileManagerStorage()
+    public static let shared = FileManagerStorage()
 
     private let fileManager: FileManager
     private let documentsDirectory: URL
