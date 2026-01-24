@@ -5,6 +5,7 @@
 
 import Foundation
 
+@MainActor
 public protocol LocalKeyValueStorage {
     func set<T>(value: T, forKey: String) where T: Codable
     func get<T>(forKey: String) -> T? where T: Codable

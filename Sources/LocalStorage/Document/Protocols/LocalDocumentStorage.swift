@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 public protocol LocalDocumentStorage {
     func directory(named name: String, createIfNeeded: Bool) throws -> URL
 

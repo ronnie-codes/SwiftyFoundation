@@ -7,6 +7,7 @@ import CoreImage
 import CoreML
 import SwiftyUtilities
 
+@MainActor
 protocol SuperResolutionService {
     func upscale(image: CIImage) -> CGImage?
 }

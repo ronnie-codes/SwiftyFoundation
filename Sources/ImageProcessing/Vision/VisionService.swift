@@ -7,6 +7,7 @@ import CoreImage
 import Foundation
 import Vision
 
+@MainActor
 public protocol VisionService {
     func getWords(from image: CIImage) async throws -> [String]
     func getWords(from imageUrl: URL) async throws -> [String]

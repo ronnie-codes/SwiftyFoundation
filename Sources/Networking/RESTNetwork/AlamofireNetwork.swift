@@ -17,14 +17,14 @@ public final class AlamofireNetwork: RESTNetwork {
         self.decoder = decoder
     }
 
-    public func request<Parameters: Encodable, Response: Decodable>(method: HTTPMethod, path: String, params: Parameters) async throws -> Response {
+    public func request<Parameters: Encodable & Sendable, Response: Decodable & Sendable>(method: HTTPMethod, path: String, params: Parameters) async throws -> Response {
         let url = serverURL.appendingPathComponent(path)
         let request = AF.request(url, method: method.toAlamofireHTTPMethod(), parameters: params, encoder: JSONParameterEncoder(encoder: encoder))
         let response = try await request.serializingDecodable(Response.self, decoder: decoder).value // TODO: Scan http codes
         return response
     }
 
-    public func request<Response: Decodable>(method: HTTPMethod, path: String) async throws -> Response {
+    public func request<Response: Decodable & Sendable>(method: HTTPMethod, path: String) async throws -> Response {
         let url = serverURL.appendingPathComponent(path)
         let request = AF.request(url, method: method.toAlamofireHTTPMethod())
         let response = try await request.serializingDecodable(Response.self, decoder: decoder).value
