@@ -34,7 +34,8 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/Alamofire/Alamofire", from: "5.0.0"),
         .package(url: "https://github.com/launchdarkly/swift-eventsource", from: "3.0.0"),
-        .package(url: "https://github.com/lorenzofiamingo/swiftui-cached-async-image", from: "2.0.0"),
+        // 2.1.2 ships a tools-version 5.6 manifest that uses `.visionOS` (5.9+ API) and fails to load.
+        .package(url: "https://github.com/lorenzofiamingo/swiftui-cached-async-image", "2.0.0"..<"2.1.2"),
         .package(url: "https://github.com/kishikawakatsumi/KeychainAccess", from: "4.0.0")
     ],
     targets: [
