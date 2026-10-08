@@ -9,7 +9,7 @@ import UniformTypeIdentifiers
 import SwiftUI
 
 extension View {
-    nonisolated func myFileImporter(
+    func myFileImporter(
         isPresented: Binding<Bool>,
         allowedContentTypes: [UTType],
         onCompletion: @escaping (_ result: Result<URL, any Error>) -> Void
@@ -47,6 +47,7 @@ extension View {
  */
 enum MacCatalystFilePicker {
 
+    @MainActor
     static func presentOpenPanel(
         allowedFileTypes: [String],
         completion: @escaping (URL?) -> Void
